@@ -26,7 +26,8 @@ class PlayerInfo {
 }
 
 class GameRoom {
-    constructor() {
+    constructor(id) {
+        this.id = id;
         this.players = {};
         this.numOfPlayers = 0;
         this.deck = [];
@@ -176,7 +177,8 @@ class GameRoom {
         }
 
         winners.forEach((player)=>player.winner = true);  
-        this.showdown = true;  
+        this.showdown = true;
+        setTimeout(this.reward,30000);  
     }
     
     reward() {
@@ -213,6 +215,7 @@ class GameRoom {
         this.round = round;
         this.turn = round;
         this.placeBlinds();
+        emitter.emit(this.id);
     }
     
     addCommunityCards() {
@@ -392,7 +395,7 @@ app.get("/gameroom/:id/addplayer/:name", (req,res)=>{
     res.send(gameRooms[req.params.id].addNewPlayer(req.params.name));
     emitter.emit(req.params.id);
   } else {
-    gameRooms[req.params.id] = new GameRoom();
+    gameRooms[req.params.id] = new GameRoom(req.params.id);
     res.status(200);
     res.send(gameRooms[req.params.id].addNewPlayer(req.params.name));
   }
