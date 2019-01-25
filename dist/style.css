@@ -1,0 +1,56 @@
+.MainMenu, .CardTable {
+    border: 1px solid black;
+    padding: 70px;
+    max-width:600px;
+    margin:auto;
+    border-radius:10px;
+}
+
+.CommunityCards {
+    width:70%;
+    height:102px;
+    margin:auto;
+    border:1px solid black;
+    padding:30px;
+    border-radius:5px;
+}
+
+.Player {
+    width:30%;
+    border:1px solid black;
+    padding:20px;
+    border-radius:5px;
+}
+
+.Card {
+    position:relative;
+    height:100px;
+    width:70px;
+    border:1px solid black;
+    border-radius:10px;
+    display:inline-block;
+    margin-left:5px;
+    margin-right:5px;
+    text-align:center;
+}
+
+.card-suit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size:200%;
+}
+
+.red {
+    color:#990000;
+}
+
+.card-face {
+    position:absolute;
+    left:25%;
+    top:15%;
+    transform: translate(-50%, -50%);
+    font-size:150%;    
+}
+
